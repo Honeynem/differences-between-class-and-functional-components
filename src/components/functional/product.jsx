@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Product = (props) => {
+const Product = ({productName , count : propCount , children}) => {
+    
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(propCount)
   return (
     <div>
         <span  className='m-2 text-info'>{props.productName}</span>
@@ -11,6 +12,7 @@ const Product = (props) => {
         <button onClick={handleIncrement} className='m-2 btn btn-sm btn-success'>+</button>
         <button onClick={handledecrement} className='m-2 btn btn-sm btn-warning'>-</button>
         <button className='m-2 btn btn-sm btn-danger'>delete</button>
+        {children}
     </div>
   )
  
