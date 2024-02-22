@@ -10,17 +10,49 @@ const Products = () => {
 ])
   return (
     <>
+    <button onClick={handleReset} className="btn btn-primary">Reset</button>
       {products.map((p , index)=> (
-                <Product onDelete={handledelete} id={p.id} key={index} productName={p.productName} count={p.count}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio doloremque perferendis labore quibusdam molestiae pariatur autem fuga voluptas, tenetur quisquam commodi quaerat. Velit, facilis corporis! Officia adipisci nihil nostrum.</Product>
+                <Product 
+                onIncrement = {handleIncerement}
+                onDecrement = {handleDecrement} 
+                onDelete={handledelete} 
+                id={p.id} 
+                key={index} productName={p.productName} 
+                count={p.count}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio doloremque perferendis labore quibusdam molestiae pariatur autem fuga voluptas, tenetur quisquam commodi quaerat. Velit, facilis corporis! Officia adipisci nihil nostrum.</Product>
               ))}
 
     </>
   )
 
+  function handleIncerement (productId){
+    const newProducts = [...products];
+    const index = newProducts.findIndex(p => p.id === productId)
+    newProducts[index].count += 1;
+    setProducts(newProducts)
+
+  }  
+
+function handleDecrement (productId){
+    const newProducts = [...products];
+    const index = newProducts.findIndex(p => p.id === productId)
+    newProducts[index].count -= 1;
+    setProducts(newProducts)
+
+  }  
+
   function handledelete (productId){
     const newProducts = products.filter(p => p.id !== productId)
     setProducts(newProducts)
   }
+
+  function handleReset (){
+    const newProducts = products.map(p =>{
+        p.count = 0;
+        return p
+    })
+
+  setProducts(newProducts)
+}
 }
 
 export default Products

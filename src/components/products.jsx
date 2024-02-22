@@ -50,7 +50,7 @@ class Products extends React.Component {
         this.setState({products : newProducts})
     }
 
-    //in this method we should lap through the array and for each element assign the count to zero and then with setState change the state
+    //in this method we should map through the array and for each element assign the count to zero and then with setState change the state
     handleReset = ()=>{
         const newProducs = this.state.products.map(p =>{
             p.count = 0;
