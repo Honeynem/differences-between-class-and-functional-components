@@ -11,11 +11,16 @@ const Products = () => {
   return (
     <>
       {products.map((p , index)=> (
-                <Product key={index} productName={p.productName} count={p.count}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio doloremque perferendis labore quibusdam molestiae pariatur autem fuga voluptas, tenetur quisquam commodi quaerat. Velit, facilis corporis! Officia adipisci nihil nostrum.</Product>
+                <Product onDelete={handledelete} id={p.id} key={index} productName={p.productName} count={p.count}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio doloremque perferendis labore quibusdam molestiae pariatur autem fuga voluptas, tenetur quisquam commodi quaerat. Velit, facilis corporis! Officia adipisci nihil nostrum.</Product>
               ))}
 
     </>
   )
+
+  function handledelete (productId){
+    const newProducts = products.filter(p => p.id !== productId)
+    setProducts(newProducts)
+  }
 }
 
 export default Products
