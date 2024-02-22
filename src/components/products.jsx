@@ -15,10 +15,15 @@ class Products extends React.Component {
         return (
             <>
               {this.state.products.map((p , index)=> (
-                <Product key={index} productName={p.productName} count={p.count}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio doloremque perferendis labore quibusdam molestiae pariatur autem fuga voluptas, tenetur quisquam commodi quaerat. Velit, facilis corporis! Ojkjdglfficia adipisci nihil nostrum.</Product>
+                <Product onDelete={this.handledelete} id={p.id} key={index} productName={p.productName} count={p.count}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio doloremque perferendis labore quibusdam molestiae pariatur autem fuga voluptas, tenetur quisquam commodi quaerat. Velit, facilis corporis! Ojkjdglfficia adipisci nihil nostrum.</Product>
               ))}
             </>
         )
+    }
+
+    handledelete = (productId)=> {
+        const newProducts = this.state.products.filter(p => p.id !== productId);
+        this.setState({products : newProducts})
     }
 }
 
