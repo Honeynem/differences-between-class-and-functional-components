@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 class Product extends React.Component {
-    
-    state = {
-        count : this.props.count
-    }
+    //no need for state 'Cause it gets all the datas from props
+    // state = {
+    //     count : this.props.count
+    // }
     render(){
         
         return (
@@ -21,12 +21,16 @@ class Product extends React.Component {
     handleIncrement= ()=>{
     //or just using this.setState({count: this.state.count+1})
         //or object destructring like 
-        const {count}=this.state;
-        this.setState({count: count + 1});
+        // const {count}=this.state;
+        // this.setState({count: count + 1});
+
+        //for getting the data as props not just before with states
+        this.props.onIncrement(this.props.id)
     }
     handledecrement= ()=>{
-        const {count}=this.state;
-        this.setState({count: count-1})
+        // const {count}=this.state;
+        // this.setState({count: count-1})
+        this.props.onDecrement(this.props.id)
     }
     handledelete= ()=>{
         this.props.onDelete(this.props.id)
@@ -34,11 +38,11 @@ class Product extends React.Component {
     
 
     format(){
-        if(this.state.count === 0 ){
+        if(this.props.count === 0 ){
             return 'zero';
         }
         else{
-            return (this.state.count);
+            return (this.props.count);
         }
     
     }
