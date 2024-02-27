@@ -4,6 +4,7 @@ import  {Component} from "react";
 import Navbar from "./components/navbar";
 import {Product} from "./components/product";
 import Products from "./components/products";
+import productContext from "./context/products";
 
 // class App extends Component {
 //     render(){
@@ -25,12 +26,15 @@ class App extends React.Component {
 
     render(){
     return (<>
-        <Navbar products={this.state.products}/>
-        <Products products={this.state.products} 
+        <productContext.Provider 
+        products={this.state.products} 
         onDelete={this.handledelete}
         onIncrement={this.handleIncerement}
         onDecrement={this.handleDecrement}
-        onReset={this.handleReset}/>         
+        onReset={this.handleReset}>
+        <Navbar />
+        <Products />  
+        </productContext.Provider>       
          </>)}
 
 

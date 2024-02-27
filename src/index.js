@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import App from "./App";
-import App from "./components/functional/app";
+import App from "./App";
+// import App from "./components/functional/app";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Product from "./components/product";
 // import Product from "./components/functional/product";

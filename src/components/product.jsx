@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
+import productContext from '../context/products'
+
 class Product extends React.Component {
+    //defining contexttypes
+    static contextType = productContext;
+
+
     //no need for state 'Cause it gets all the datas from props
     // state = {
     //     count : this.props.count
@@ -25,15 +31,15 @@ class Product extends React.Component {
         // this.setState({count: count + 1});
 
         //for getting the data as props not just before with states
-        this.props.onIncrement(this.props.id)
+        this.context.onIncrement(this.props.id)
     }
     handledecrement= ()=>{
         // const {count}=this.state;
         // this.setState({count: count-1})
-        this.props.onDecrement(this.props.id)
+        this.context.onDecrement(this.props.id)
     }
     handledelete= ()=>{
-        this.props.onDelete(this.props.id)
+        this.context.onDelete(this.props.id)
     }
     
 
