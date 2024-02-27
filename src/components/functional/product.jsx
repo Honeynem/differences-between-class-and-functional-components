@@ -1,7 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import productContext from '../../context/products';
 
-const Product = ({productName , count , id , onDelete, onIncrement, onDecrement}) => {
+
+const Product = ({productName , count , id}) => {
     
 
   // const [count, setCount] = useState(propCount)
@@ -18,12 +20,12 @@ const Product = ({productName , count , id , onDelete, onIncrement, onDecrement}
  
   function handleIncrement(){
     // setCount(count+1)
-    onIncrement(id)}
+    productContext.onIncrement(id)}
   function handleDecrement (){
     // setCount(count-1)
-    onDecrement(id)}
+    productContext.onDecrement(id)}
   function handleDelete(){
-    onDelete(id)
+    productContext.onDelete(id)
   }
     
 
