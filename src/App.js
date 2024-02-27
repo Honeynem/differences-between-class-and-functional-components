@@ -26,12 +26,15 @@ class App extends React.Component {
 
     render(){
     return (<>
+    {/* the values should ne passed to value attribute */}
         <productContext.Provider 
-        products={this.state.products} 
-        onDelete={this.handledelete}
-        onIncrement={this.handleIncerement}
-        onDecrement={this.handleDecrement}
-        onReset={this.handleReset}>
+        value={{
+        products: this.state.products,
+        onDelete: this.handledelete,
+        onIncrement: this.handleIncerement,
+        onDecrement: this.handleDecrement,
+        onReset: this.handleReset,
+        }}>
         <Navbar />
         <Products />  
         </productContext.Provider>       
